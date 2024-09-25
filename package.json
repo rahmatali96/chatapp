@@ -1,5 +1,4 @@
 {
-  "homepage": "https://rahmatali96.github.io/chatapp",
   "name": "chatapp",
   "version": "0.1.0",
   "private": true,
@@ -17,8 +16,6 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "predploy": "npm run build",
-    "deploy": "gh-pages -d build",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
@@ -42,6 +39,7 @@
     ]
   },
   "devDependencies": {
-    "gh-pages": "^6.1.1"
+    "sass": "^1.79.3",
+    "sass-loader": "^16.0.2"
   }
 }
