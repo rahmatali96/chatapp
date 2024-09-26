@@ -1,0 +1,30 @@
+name: Docker build
+
+on:
+  push:
+    branch: 
+      -master
+
+job:
+  build:
+  runs-on: ubantu-latest
+  steps:
+  -name: Checkout Source
+  - uses: actions/checkout@v3
+  - name: Login to docker hub
+    run: docker login -u ${{secret.DOCKER_USERNAME}} -p ${{secret.DOCKER_PASSOWRD}}
+  -name: Build docker Image
+    run: docker build -t  rahmatali/chatapp .
+  -name: Publish image to docker hub
+  run: docker push rahmatali/chatapp:latest
+
+#deploy:
+ # needs: build
+  #runs-on: aws-ec2
+  #steps:
+  # - name: Pull image from docker hub
+   # run: docker pull rahmatali/chatapp:latest
+   # - name: Delete ond container
+   # run: docker rm -f container
+   #-name: Run docker container
+   # run: docker run -d -p 3000:80 --name container rahmatali/chatapp
